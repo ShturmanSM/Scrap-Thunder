@@ -1,19 +1,158 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Подключение к игре</title>
+<meta charset="UTF-8">
+<title>Подключение к лобби</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Автоматический редирект -->
-  <meta http-equiv="refresh" content="0;url=steam://rungame/387990/76561198825102223/-connect_steam_id%2076561198825102223%20-friend_steam_id%2076561198825102223">
+<!-- Автозапуск Steam -->
+<meta http-equiv="refresh" content="0;url=steam://rungame/387990/76561198825102223/-connect_steam_id%2076561198825102223%20-friend_steam_id%2076561198825102223">
 
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== Верхняя GIF-зона ===== */
+.hero {
+  height: 75vh;
+  width: 100%;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* ===== Заголовок ===== */
+.title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  padding: 30px 15px;
+}
+
+/* ===== Блок с вопросами ===== */
+.faq {
+  background: #000;
+  padding: 0 15px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #333;
+}
+
+.faq-title {
+  cursor: pointer;
+  padding: 20px;
+  font-size: 22px;
+  position: relative;
+}
+
+.faq-title::after {
+  content: "▼";
+  position: absolute;
+  right: 20px;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-title::after {
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+  font-size: 18px;
+  color: #ccc;
+}
+
+.faq-item.active .faq-content {
+  max-height: 300px;
+  padding-bottom: 20px;
+}
+
+/* ===== Контакты ===== */
+.footer {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  padding: 20px 10px;
+  border-top: 1px solid #222;
+}
+</style>
 </head>
-<body>
-  <h2>Подключение к лобби</h2>
-  <p>Если Steam не открылся автоматически — нажмите кнопку ниже.</p>
 
-  <a href="steam://rungame/387990/76561198825102223/-connect_steam_id%2076561198825102223%20-friend_steam_id%2076561198825102223">
-    👉 Подключиться к игре
-  </a>
+<body>
+
+<!-- ===== GIF ===== -->
+<div class="hero">
+  <!-- ЗАМЕНИ ССЫЛКУ НА СВОЮ GIF -->
+  <img src="https://example.com/your.gif" alt="Lobby GIF">
+</div>
+
+<!-- ===== Заголовок ===== -->
+<div class="title">
+  Возможные проблемы и вопросы
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="faq">
+
+  <div class="faq-item">
+    <div class="faq-title">Проблема с подключением</div>
+    <div class="faq-content">
+      <p>
+        • Убедитесь, что Steam запущен<br>
+        • Игра установлена<br>
+        • Вы вошли в нужный аккаунт<br>
+        • Браузер разрешил открытие Steam
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-title">Проблема с отображением блоков</div>
+    <div class="faq-content">
+      <p>
+        • Обновите страницу (Ctrl + F5)<br>
+        • Отключите тёмные расширения браузера<br>
+        • Попробуйте другой браузер
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== Контакты ===== -->
+<div class="footer">
+  Контакты для связи: Discord — Nick#0000 | Telegram — @nickname
+</div>
+
+<script>
+document.querySelectorAll('.faq-title').forEach(title => {
+  title.addEventListener('click', () => {
+    title.parentElement.classList.toggle('active');
+  });
+});
+</script>
+
 </body>
 </html>
